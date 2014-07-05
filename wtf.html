@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+        <canvas id="myCanvas" width="500" height="500"></canvas>
+
+        <script>
+            var ctx = document.getElementById('myCanvas').getContext('2d');
+            var vertices = 7;
+
+            ctx.translate(300, 300);
+            ctx.font = "bold 32px Arial white";
+            ctx.fillStyle = "skyblue";
+
+            for (var j = 0; j < vertices; j++) { // draw individual dots
+                ctx.rotate(Math.PI * 2 / vertices);
+                ctx.beginPath();
+                //ctx.arc(0,12.5,5,0,Math.PI*2,true);
+                ctx.arc(0, 150, 30, 0, Math.PI*2, true);
+                ctx.fillText((j+1), 0, 175);
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>

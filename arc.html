@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+        <canvas id="myCanvas" width="500" height="500"></canvas>
+
+        <script>
+            // strokeRect(x, y, width, height)
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "bold 32px Arial";
+            ctx.translate(200, 200);
+
+            var vertices = 5;
+            var degrees = 360 / vertices;
+
+            var width = 50;
+            var height = 50;
+            var vertice = 1;
+
+            ctx.save();
+            for (var i = 0; i < 360; i += degrees) {
+                var x = i;
+                var y = i;
+                ctx.fillText(vertice, x + 15, y + 35);
+                ctx.strokeRect(x, y,  width, height);
+                //ctx.rotate(Math.PI / 180 * i);
+                //ctx.translate(Math.PI / 180 * i, Math.PI / 180 * i);
+                ctx.translate(i, i);
+                ctx.restore();
+                vertice += 1;
+            }
+
+
+        </script>
+    </body>
+</html>
